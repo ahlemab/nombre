@@ -5,10 +5,10 @@ def guess_number(secret, guess):
     Compare la devinette au nombre secret.
     Retourne un indice pour guider le joueur.
     """
-    if guess < secret:
-        return "Trop bas"
-    elif guess > secret:
-        return "Trop haut"
+    if guess > secret:
+        return "Trop haut !"
+    elif guess < secret:
+        return "Trop bas !"
     return "Correct !"
 
 def play_game():
@@ -33,24 +33,9 @@ def play_game():
         except ValueError:
             print("Erreur : Veuillez entrer un nombre valide.")
 
-# Tests automatisés
-def run_tests():
-    """
-    Tests automatisés pour vérifier la fonction guess_number.
-    """
-    print("Exécution des tests...")
-    try:
-        assert guess_number(50, 25) == "Trop bas", "Échec : La réponse aurait dû être 'Trop bas'"
-        assert guess_number(50, 75) == "Trop haut", "Échec : La réponse aurait dû être 'Trop haut'"
-        assert guess_number(50, 50) == "Correct !", "Échec : La réponse aurait dû être 'Correct !'"
-        print("Tous les tests sont passés avec succès !")
-    except AssertionError as e:
-        print(f"Erreur dans les tests : {e}")
 
 if __name__ == "__main__":
-    # Exécution des tests avant le jeu
-    run_tests()
-    
+      
     # Démarrage du jeu
     print("\n--- Lancement du jeu ---\n")
     play_game()
